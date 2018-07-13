@@ -1,0 +1,115 @@
+<section class="hero is-medium has-background-image background-image is-dark" style="background-image: url('/assets/img/trasparenza.png')">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title has-text-centered">
+         {{ title }}
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body column is-12-mobile is-8-desktop is-offset-2-desktop">
+    <h3 class="has-text-weight-bold has-text-centered">{{ documents_heading }}</h3>
+
+    <div class="columns is-multiline is-marginless">
+
+      {{ documents}}
+
+      <a class="column document" href="{{ file }}" download>
+        <h4 class="is-marginless has-text-weight-semibold">{{ name }}</h4>
+        <small class="has-text-grey">{{ date }}</small>
+      </a>
+
+      {{ /documents }}
+
+    </div>
+  </div>
+</section>
+
+<section class="hero is-medium">
+  <div class="hero-body column is-12-mobile is-8-desktop is-offset-2-desktop">
+    <h3 class="has-text-weight-bold has-text-centered">{{ board_title}}</h3>
+    <p>{{ board_description }}</p>
+
+    <hr>
+
+    {{ collection:consigliodirettivo }}
+
+      <div class="card board-member">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-256x256"><img src="{{ pic:0 }}" alt="{{ title }}"></figure>
+            </div>
+            <div class="media-content">
+              <h4>{{ title }}</h4>
+              <a class="is-5 has-text-weight-semibold">{{ mail }}</a>
+              {{ if linkedin }}&nbsp;
+                <a href="{{ linkedin }}">
+                  <svg version="1.1" viewBox="0 0 16 16" xml:space="preserve" width="16" height="16"><path d="M15.3,0H0.7C0.3,0,0,0.3,0,0.7v14.7C0,15.7,0.3,16,0.7,16h14.7c0.4,0,0.7-0.3,0.7-0.7V0.7 C16,0.3,15.7,0,15.3,0z M4.7,13.6H2.4V6h2.4V13.6z M3.6,5C2.8,5,2.2,4.3,2.2,3.6c0-0.8,0.6-1.4,1.4-1.4c0.8,0,1.4,0.6,1.4,1.4 C4.9,4.3,4.3,5,3.6,5z M13.6,13.6h-2.4V9.9c0-0.9,0-2-1.2-2c-1.2,0-1.4,1-1.4,2v3.8H6.2V6h2.3v1h0c0.3-0.6,1.1-1.2,2.2-1.2 c2.4,0,2.8,1.6,2.8,3.6V13.6z"></path></svg>
+                </a>
+              {{ /if }}
+              <p class="is-5 has-text-weight-semibold has-text-primary">{{ role }}</p>
+              <p>{{ bio }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    {{ /collection:consigliodirettivo }}
+
+  </div>
+</section>
+
+<section class="hero is-medium">
+  <div class="hero-body column is-12-mobile is-8-desktop is-offset-2-desktop">
+    <h3 class="has-text-weight-bold has-text-centered">{{ assistants_title}}</h3>
+
+    <hr>
+
+    {{ collection:assistentidipresidenza }}
+
+      <div class="card board-member">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-256x256">
+                <img src="{{ pic:0 }}" alt="{{ title }}">
+              </figure>
+            </div>
+            <div class="media-content">
+              <h4>{{ title }}</h4>
+              <a class="is-5 has-text-weight-semibold">{{ mail }}</a>
+              {{ if linkedin }}&nbsp;
+                <a href="{{ linkedin }}">
+                  <svg version="1.1" viewBox="0 0 16 16" xml:space="preserve" width="16" height="16"><path d="M15.3,0H0.7C0.3,0,0,0.3,0,0.7v14.7C0,15.7,0.3,16,0.7,16h14.7c0.4,0,0.7-0.3,0.7-0.7V0.7 C16,0.3,15.7,0,15.3,0z M4.7,13.6H2.4V6h2.4V13.6z M3.6,5C2.8,5,2.2,4.3,2.2,3.6c0-0.8,0.6-1.4,1.4-1.4c0.8,0,1.4,0.6,1.4,1.4 C4.9,4.3,4.3,5,3.6,5z M13.6,13.6h-2.4V9.9c0-0.9,0-2-1.2-2c-1.2,0-1.4,1-1.4,2v3.8H6.2V6h2.3v1h0c0.3-0.6,1.1-1.2,2.2-1.2 c2.4,0,2.8,1.6,2.8,3.6V13.6z"></path></svg>
+                </a>
+              {{ /if }}
+              <p class="is-5 has-text-weight-semibold has-text-primary">{{ role }}</p>
+              <p>{{ bio }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    {{ /collection:assistentidipresidenza }}
+
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body column is-12-mobile is-8-desktop is-offset-2-desktop">
+    <h3 class="has-text-weight-bold has-text-centered">{{ info_title }}</h3>
+    <div class="columns is-multiline">
+      <div class="column">
+        <figure>
+          <img src="/assets/img/eyplogo.png" alt="EYP italy">
+        </figure>
+      </div>
+      <div class="column">
+        {{ info | markdown }}
+      </div>
+    </div>
+  </div>
+</section>

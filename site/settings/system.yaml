@@ -1,0 +1,48 @@
+locales:
+  it:
+    full: it_IT
+    name: Italian
+    url: http://eyp
+  en:
+    full: en_US
+    name: English
+    url: http://eyp/en
+timezone: UTC
+date_format: F jS, Y
+default_extension: md
+filesystems:
+  content:
+    driver: local
+    root: site/content
+  storage:
+    driver: local
+    root: site/storage
+  users:
+    driver: local
+    root: site/users
+  themes:
+    driver: local
+    root: site/themes
+    url: /site/themes
+app_key: ezvLFsIJUcc8JEqihwH6nxLmNAFJQfoK
+redactor:
+  - 
+    name: Standard
+    settings:
+      buttons:
+        - formatting
+        - bold
+        - italic
+        - link
+        - unorderedlist
+        - orderedlist
+        - html
+  - 
+    name: Basic
+    settings:
+      buttons:
+        - bold
+        - italic
+send_powered_by_header: true
+ensure_unique_ids: true
+yaml_parser: spyc

@@ -1,0 +1,130 @@
+<div class="home has-dark-background-image">
+
+  <div class="video-container">
+     <video class="video" loop="true" muted="true" poster="{{ video_file_cover }}">
+        <source src="/assets/video/{{ video_file_mp4 }}" type="video/mp4">
+        <source src="/assets/video/{{ video_file_webm }}" type="video/webm">
+     </video>
+     <div class="is-overlay has-background-darkish"></div>
+  </div>
+
+  <section class="hero is-fullheight">
+     <div class="hero-body">
+        <div class="container typing-fix has-text-white">
+          <h1 class="title">
+            <span>{{ intro }}</span>
+            <span class="typewriter typed-cursor"></span>
+          </h1>
+          <a class="button is-info is-outlined is-inverted" href="/eventi">{{ intro_button_a }}</a>
+          <a class="button is-info is-outlined is-inverted" href="/contatti">{{ intro_button_b }}</a>
+        </div>
+     </div>
+     <div class="hero-footer home-lower">
+        <img src="{{ santanna }}" alt="Patrocinio Sant'Anna e MIUR">
+     </div>
+
+     <svg width="48" height="48" class="arrow-down">
+      <path fill="none" stroke="#fff" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M45 17L24 31 3 17"/>
+     </svg>
+  </section>
+
+  {{# <section class="hero is-large">
+     <div class="hero-body">
+        <div class="container">
+           <h2 class="title">{{ section_a:title }}</h2>
+           <p>{{ section_a:text }}</p>
+        </div>
+     </div>
+  </section>
+
+  <section class="hero is-large">
+     <div class="hero-body">
+        <div class="container">
+           <h2 class="title">{{ section_b:title }}</h2>
+           <p>{{ section_b:text }}</p>
+        </div>
+     </div>
+  </section>
+
+  <section class="hero is-large">
+     <div class="hero-body">
+        <div class="container">
+           <h2 class="title">{{ section_c:title }}</h2>
+           <p>{{ section_c:text }}</p>
+        </div>
+     </div>
+  </section>
+
+  <section class="hero is-large">
+     <div class="hero-body">
+        <div class="container">
+           <h2 class="title">{{ section_d:title }}</h2>
+           <p>{{ section_d:text }}</p>
+        </div>
+     </div>
+  </section> #}}
+
+  <section class="container hero is-large">
+    <div class="hero-body columns is-multiline has-text-centered">
+      <div class="column is-12 is-5-desktop">
+        <h2 class="title">{{ section_a:title }}</h2>
+        <p>{{ section_a:text }}</p>
+      </div>
+      <div class="column is-12 is-5-desktop is-offset-2-desktop">
+        <h2 class="title">{{ section_b:title }}</h2>
+        <p>{{ section_b:text }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+     <div class="hero-body">
+        <div class="container">
+            <div class="columns is-multiline">
+              <div class="column is-12 is-4-desktop center-flex">
+                <img class="is-256x256 is-round lazyload" data-src="/assets/img/{{ quote:image }}" alt="Camille Pomme">
+              </div>
+              <div class="column is-12 is-8-desktop">
+                <p>“{{ quote:text }}”</p>
+                <p><b>{{ quote:source }}</b></p>
+              </div>
+            </div>
+        </div>
+     </div>
+  </section>
+
+    <section class="container hero is-large">
+      <div class="hero-body columns is-multiline has-text-centered">
+        <div class="column is-12 is-5-desktop">
+          <h2 class="title">{{ section_c:title }}</h2>
+          <p>{{ section_c:text }}</p>
+        </div>
+        <div class="column is-12 is-5-desktop is-offset-2-desktop">
+          <h2 class="title">{{ section_d:title }}</h2>
+          <p>{{ section_d:text }}</p>
+        </div>
+      </div>
+    </section>
+
+  <section class="hero is-large">
+     <div class="hero-body">
+        <div class="container">
+           <h2 class="title">{{ section_e_title }}</h2>
+           <div class="columns">
+              <div class="column is-4">
+                 <h4>{{ section_e_point_1:title }}</h4>
+                 <p>{{ section_e_point_1:text }}</p>
+              </div>
+              <div class="column is-4">
+                 <h4>{{ section_e_point_2:title }}</h4>
+                 <p>{{ section_e_point_2:text }}</p>
+              </div>
+              <div class="column is-4">
+                 <h4>{{ section_e_point_3:title }}Y</h4>
+                 <p>{{ section_e_point_3:text }}</p>
+              </div>
+           </div>
+        </div>
+     </div>
+  </section>
+</div>

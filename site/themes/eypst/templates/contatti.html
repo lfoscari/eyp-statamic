@@ -1,0 +1,138 @@
+<div class="hero is-medium is-dark contactus" style="background-image: url('{{ intro_image }}')">
+   <div class="hero-body">
+      <div class="container">
+         <h1 class="title">
+           {{ intro:title }}
+         </h1>
+         <p>{{ intro:description }}</p>
+      </div>
+   </div>
+</div>
+
+<div class="hero contactus-content">
+   <div class="container hero-body has-text-centered">
+      <h3 class="has-text-weight-semibold">{{ contact:title }}</h3>
+      <p>{{ contact:description }}<br>
+        <small>{{ contact:note }}
+          <a href="mailto:{{ contact:mail }}">{{ contact:mail }}</a>
+        </small>
+      </p>
+   </div>
+
+   {{ form:create in="contact" }}
+     <div class="container hero-body is-marginless-touch">
+       <div class="columns is-multiline">
+       {{ fields }}
+         {{ if field == 'message' }}
+           <div class="field column is-12">
+              <label class="label">{{ display }}</label>
+              <div class="control">
+                  <textarea class="textarea" name="{{ field }}" value="{{ old }}" rows="5"></textarea>
+              </div>
+           </div>
+         {{ else }}
+           <div class="field column is-4">
+              <label class="label">{{ display }}</label>
+              <div class="control">
+                  <input class="input" type="text" name="{{ field }}" value="{{ old }}" >
+              </div>
+           </div>
+         {{ /if }}
+       {{ /fields }}
+
+       <input type="text" name="honeypot" class="honeypot" />
+
+        <div class="field column is-12">
+           <button class="button is-primary">
+           Send message
+         </button>
+        </div>
+       </div>
+     </div>
+   {{ /form:create }}
+
+   {{# <div class="container hero-body is-marginless-touch">
+      <div class="columns is-multiline">
+         <div class="field column is-4">
+            <label class="label">Nome</label>
+            <div class="control">
+               <input class="input" type="text">
+            </div>
+         </div>
+
+         <div class="field column is-4">
+            <label class="label">Cognome</label>
+            <div class="control">
+               <input class="input" type="text">
+            </div>
+         </div>
+
+         <div class="field column is-4">
+            <label class="label">Email</label>
+            <div class="control">
+               <input class="input" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            </div>
+         </div>
+
+         <div class="field column is-12">
+            <label class="label">Messaggio</label>
+            <div class="control">
+               <textarea class="textarea" type="text" rows="5"></textarea>
+            </div>
+         </div>
+
+         <div class="field column is-12">
+            <button class="button is-primary">
+            Send message
+          </button>
+         </div>
+
+      </div>
+   </div> #}}
+
+   <div class="container hero-body">
+      <div class="columns is-multiline one-line-link">
+         <h4 class="column is-12 has-text-weight-bold">{{ ourcontacts }}</h4>
+
+         <h4 class="column is-12 is-marginless has-text-primary">{{ schools_title }}</h4>
+
+         {{ schools }}
+
+           <div class="column is-6">
+              <h4 class="has-text-weight-bold is-marginless">{{ name }}</h4>
+              <p class="is-marginless">{{ role }}</p>
+              <a href="mailto:{{ mail }}">{{ mail }}</a>
+              <a href="tel:{{ phone }}">{{ phone }}</a>
+           </div>
+
+         {{ /schools }}
+
+         <h4 class="column is-12 is-marginless has-text-primary">{{ understandingeurope_title }}</h4>
+
+         {{ understandingeurope }}
+
+           <div class="column is-6">
+              <h4 class="has-text-weight-bold is-marginless">{{ name }}</h4>
+              <p class="is-marginless">{{ role }}</p>
+              <a href="mailto:{{ mail }}">{{ mail }}</a>
+              <a href="tel:{{ phone }}">{{ phone }}</a>
+           </div>
+
+          {{ /understandingeurope }}
+
+          <h4 class="column is-12 is-marginless has-text-primary">{{ press_title }}</h4>
+
+         {{ press }}
+
+           <div class="column is-6">
+              <h4 class="has-text-weight-bold is-marginless">{{ name }}</h4>
+              <p class="is-marginless">{{ role }}</p>
+              <a href="mailto:{{ mail }}">{{ mail }}</a>
+              <a href="tel:{{ phone }}">{{ phone }}</a>
+           </div>
+
+         {{ /press }}
+
+      </div>
+   </div>
+</div>

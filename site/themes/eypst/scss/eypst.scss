@@ -1,0 +1,658 @@
+@import "sass/utilities/functions";
+@import "sass/utilities/initial-variables";
+
+// 2. Set your own initial variables
+
+$blue: #144b8e;
+$blue-invert: darken($blue, 50%);
+$yellow: #ffee00;
+$black: #000;
+$white: #fff;
+$family-sans: "Source Sans Pro", Helvetica, Arial, sans-serif;
+$grey: #b3b3b3;
+
+// 3. Set the derived variables
+
+$primary: $blue;
+$primary-invert: $white;
+$link: $grey;
+$link-hover: $blue;
+$info: $blue;
+$success: $blue;
+$warning: $yellow;
+$danger: $yellow;
+$dark: $black;
+$dark-invert: $white;
+$text: $black;
+$text-invert: $white;
+$primarish: rgba($primary, 0.5);
+
+$input-hover-border-color: $blue;
+$input-focus-border-color: $blue;
+$input-focus-box-shadow-color: rgba($blue, 0.1);
+
+$title-color: inherit;
+$subtitle-color: $black;
+
+$understanding: #1eb8fe;
+$understanding-invert: findColorInvert($understanding);
+
+$yellow: $yellow;
+$yellow-invert: findColorInvert($yellow);
+
+$darkish: rgba(0, 0, 0, 0.5);
+$darkish-invert: findColorInvert(rgba(0, 0, 0, 0.5));
+
+$family-primary: $family-sans;
+
+$dimensions: 256, 160, 32, 48, 64, 96, 128;
+
+$shadow: 0 12px 33px rgba(0, 0, 0, 0.13);
+
+// Cards
+
+$card-shadow: none;
+
+
+// Navbar
+
+$navbar-item-img-max-height: 2.5rem;
+$navbar-dropdown-border-top: trasparent;
+$navbar-background-color: trasparent;
+$navbar-item-color: $white;
+$navbar-item-hover-color: $yellow;
+$navbar-item-hover-background-color: trasparent;
+$navbar-item-active-color: $yellow;
+$navbar-item-active-background-color: trasparent;
+
+@import "sass/utilities/derived-variables";
+
+$addColors: (
+  "understanding": (
+    $understanding,
+    $understanding-invert
+  ),
+  "yellow": (
+    $yellow,
+    $yellow-invert
+  ),
+  "darkish": (
+    $darkish,
+    $darkish-invert
+  )
+);
+
+$colors: map-merge($colors, $addColors);
+
+@import "sass/utilities/controls";
+@import "sass/utilities/mixins";
+
+@import "sass/bulma";
+
+/*---------------------------------
+            Typography
+----------------------------------*/
+
+a {
+  font-weight: 600;
+  @include transition;
+
+  &:hover {
+    @include transition;
+  }
+}
+
+h1 {
+  @extend .subtitle;
+  @extend .is-1;
+}
+
+h2 {
+  @extend .subtitle;
+  @extend .is-1;
+}
+
+h3 {
+  @extend .subtitle;
+  @extend .is-3;
+}
+
+h4 {
+  @extend .subtitle;
+  @extend .is-4;
+}
+
+h5 {
+  @extend .subtitle;
+  @extend .is-4;
+}
+
+p {
+  @extend .subtitle;
+  @extend .is-5;
+}
+
+/*---------------------------------
+            Navigation
+----------------------------------*/
+
+nav {
+  @include transition(background-color);
+}
+
+.navbar-end .navbar-item {
+  font-size: 1.25rem;
+}
+
+.navbar-burger {
+  color: $white;
+
+  &:hover {
+    color: darken($white, 20%);
+  }
+}
+
+.navbar-brand {
+  align-self: center;
+
+  @include touch {
+    .navbar-item {
+      max-width: 66%;
+    }
+  }
+}
+
+.navbar-item {
+  @include touch {
+    padding-bottom: 1rem;
+  }
+}
+
+/*---------------------------------
+            Footer
+----------------------------------*/
+
+.footer a {
+  margin-bottom: 0.5rem;
+}
+
+/*---------------------------------
+            Utilities
+----------------------------------*/
+
+.is-marginless-touch {
+  @include touch {
+    margin: 0 !important;
+  }
+}
+
+.has-dark-background-image * {
+  color: $white;
+}
+
+.is-round {
+  border-radius: 50%;
+}
+
+.is-centered {
+  margin: 0 auto;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.level.is-mobile {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.has-background-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.one-line-link a {
+  display: table;
+}
+
+.cookie {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  visibility: hidden;
+
+  a {
+    margin-bottom: 0 !important;
+    color: $primary;
+  }
+}
+
+.center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/*---------------------------------
+               Homepage
+----------------------------------*/
+
+ @import url('https://fonts.googleapis.com/css?family=Kalam:700');
+
+.home {
+  section:first-of-type {
+    a {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.eypis {
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.typewriter, .typed-cursor {
+  font-family: 'Kalam', $family-sans;
+  word-break: break-all;
+  hyphens: auto;
+  @include tablet {
+    display: inline-block;
+   font-size: calc((16px + 3vw) * 1.4);
+  }
+}
+
+.typing-fix {
+  @include touch {
+    max-width: 100%;
+  }
+
+  span:first-of-type {
+    margin-bottom: 1rem;
+    display: block;
+  }
+}
+
+.video-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: inherit;
+
+    @include mobile {
+      object-fit: cover;
+    }
+  }
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .video-container video {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .video-container video {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+.home-lower {
+  text-align: right;
+  padding: 1rem;
+
+  img {
+    max-height: 100px;
+    width: auto;
+    visibility: hidden;
+
+    @include tablet {
+      visibility: visible;
+    }
+  }
+}
+
+.arrow-down {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  bottom: 20px;
+  @include touch {
+    display: none;
+  };
+  display: block;
+  will-change: transform;
+  animation: arrow .5s infinite alternate ease;
+  animation-fill-mode: both;
+}
+
+@keyframes arrow {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+/*---------------------------------
+               About
+----------------------------------*/
+
+.carousel-item {
+  .title {
+    background-color: transparent !important;
+    padding: 3rem !important;
+
+    span {
+      color: #fff !important;
+
+      &:nth-of-type(1) {
+        @extend .subtitle;
+        @extend .is-2;
+      }
+
+      &:nth-of-type(2) {
+        @extend .subtitle;
+        @extend .is-4;
+      }
+    }
+  }
+}
+
+.is-light-bold {
+  background-image: linear-gradient(0, whitesmoke 0%, white 100%);
+}
+
+.divider {
+  color: grey;
+  text-align: center;
+
+  &::after,
+  &::before {
+    display: inline-block;
+    content: '';
+    border-top: 0.15rem solid rgba(0, 0, 0, 0.3);
+    width: 20vw;
+    margin: 0 15px;
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.sponsor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: space-around;
+  justify-content: center;
+
+  // figure {
+  //   height: auto;
+  //   width: 25%;
+  //   @include touch {
+  //     width: 50%;
+  //   }
+
+    img {
+      height: auto;
+      width: 25%;
+      @include mobile {
+        width: 50%;
+      }
+    }
+  // }
+}
+
+.sponsor-intro {
+  justify-content: center;
+}
+
+.national-board {
+  figure {
+    margin: 0.3rem;
+  }
+
+  .is-96x96 {
+    @include mobile {
+      height: 64px;
+      width: 64px;
+    }
+  }
+}
+
+.national-board-link:hover {
+  display: block;
+  background-color: whitesmoke;
+}
+
+.workgroups {
+  align-items: baseline !important;
+
+  .hero-body {
+    display: block !important;
+  }
+}
+
+.governing-body {
+  h3 {
+    font-weight: bold;
+  }
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.schwarzkopf {
+  ul {
+    @extend .subtitle;
+    @extend .is-5;
+    list-style-type: circle;
+    margin-left: 0;
+    padding-left: 40px;
+  }
+}
+
+/*---------------------------------
+             Contact us
+----------------------------------*/
+
+.contactus {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.contactus-content {
+  input:invalid {
+    border-color: red;
+  }
+}
+
+.honeypot {
+  display: none;
+}
+
+/*---------------------------------
+               Events
+----------------------------------*/
+
+.events-associates {
+  margin: 0 1rem;
+  padding: 2.5rem;
+  height: 100%;
+
+  &.is-light {
+    background-image: linear-gradient(
+      141deg,
+      #dfd8d9 0%,
+      whitesmoke 71%,
+      white 100%
+    );
+  }
+
+  &.is-blue {
+    background-image: linear-gradient(
+      141deg,
+      #65a9ad 0%,
+      #a6dbdd 41%,
+      #a6dbdd 100%
+    );
+  }
+}
+
+.image-events img {
+  height: 256px;
+  width: auto;
+  margin-bottom: 1.5rem;
+}
+
+// .faq-question:nth-of-type(n + 3) {
+//   display: none;
+// }
+
+/*---------------------------------
+        Understanding Europe
+----------------------------------*/
+
+.understandingeurope {
+  h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+
+  .hero-body {
+    @include touch {
+      padding-top: 4rem;
+    }
+  }
+}
+
+.understanding-in-italy {
+  .level {
+    flex-wrap: wrap;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .level-item {
+    display: block;
+    padding: 1rem 0;
+  }
+
+  img {
+    padding: 2rem;
+  }
+}
+
+.poster {
+  height: 40%;
+  min-height: 400px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.understanding-pattern {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  @include desktop {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+  position: static;
+  background-repeat: repeat;
+  background-position: top left;
+}
+
+.has-box-shadow {
+  box-shadow: $shadow;
+}
+
+.has-text-shadow {
+  text-shadow: $shadow;
+}
+
+/*---------------------------------
+          Transparency
+----------------------------------*/
+
+.document {
+  margin-bottom: .5rem;
+
+  &:hover {
+    background-color: rgba($grey, 0.1);
+  }
+}
+
+.board-member {
+  padding: 1rem 0;
+
+  .card-content {
+    @include touch {
+      padding: 0;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: 50%;
+  }
+
+  .media {
+    @include touch {
+      flex-wrap: wrap;
+    }
+    justify-content: center;
+    align-items: center;
+  }
+
+  a {
+    display: inline-block;
+  }
+
+  h4, p, a {
+    margin: 0 auto .5rem auto;
+  }
+}
+
+/*---------------------------------
+              Credits
+----------------------------------*/
+
+.credits {
+  .subtitle {
+    margin: 0 0 .5rem 0;
+    color: $grey;
+  }
+
+  ul {
+    list-style: none;
+    text-align: center;
+  }
+}

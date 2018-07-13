@@ -1,0 +1,82 @@
+<span class="cookie tag is-grey is-medium">
+ <a href="{{ cookie }}">Cookie Policy</a>
+ &nbsp;<button class="delete is-small" id="cookie-close"></button>
+</span>
+
+{{ if slug != undefined }}
+  <footer class="footer">
+    <div class="container">
+      <div class="columns one-line-link">
+        <div class="column">
+          <figure class="image is-160x160">
+            <img  class="lazyload" data-src="/assets/img/eyplogo.png" alt="EYP Italy">
+          </figure>
+        </div>
+        {{ if locale == 'it' }}
+          <div class="column">
+            <h4 class="has-text-weight-bold">About us</h4>
+            <a class="has-text-weight-semibold" href="{{ path src="chi-siamo" }}">Chi siamo</a>
+            <a class="has-text-weight-semibold" href="{{ path src="contatti" }}">Contattaci</a>
+          </div>
+          <div class="column">
+            <h4 class="has-text-weight-bold">Info</h4>
+            <a class="has-text-weight-semibold" href="{{ path src="trasparenza" }}">Trasparenza</a>
+            <a class="has-text-weight-semibold" href="{{ path src="crediti" }}">Crediti</a>
+          </div>
+        {{ else }}
+          <div class="column">
+            <h4 class="has-text-weight-bold">About us</h4>
+            <a class="has-text-weight-semibold" href="{{ path src="chi-siamo" }}">About us</a>
+            <a class="has-text-weight-semibold" href="{{ path src="contatti" }}">Contact us</a>
+          </div>
+          <div class="column">
+            <h4 class="has-text-weight-bold">Info</h4>
+            <a class="has-text-weight-semibold" href="{{ path src="trasparenza" }}">Transparency</a>
+            <a class="has-text-weight-semibold" href="{{ path src="crediti" }}">Credits</a>
+          </div>
+        {{ /if }}
+        <div class="column">
+          <h4 class="has-text-weight-bold">Network</h4>
+          <a class="has-text-weight-semibold" href="">EYP in your country</a>
+          <a class="has-text-weight-semibold" href="">Governing Body</a>
+          <a class="has-text-weight-semibold" href="">Schwarzkopf Foundation</a>
+        </div>
+        <div class="column">
+          <h4 class="has-text-weight-bold">Seguici</h4>
+          <a class="has-text-weight-semibold" href="">Facebook</a>
+          <a class="has-text-weight-semibold" href="">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+{{ else }}
+  {{ theme:js src="typed.min.js" tag="true" }}
+  <script type="text/javascript">
+   var typed = new Typed('.typewriter', {
+     strings: ["{{ typing:1 }}", "{{ typing:2 }}", "{{ typing:3 }}", "{{ typing:4 }}", "{{ typing:5 }}", "{{ typingb:6 }}", "{{ typingb:7 }}", "{{ typingb:8 }}", "{{ typingb:9 }}", "{{ typingb:10 }}"],
+     typeSpeed: 50,
+     backSpeed: 50,
+     loop: true
+   });
+  </script>
+{{ /if }}
+
+{{# <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106926649-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-106926649-1');
+</script> #}}
+
+{{ theme:js src="lazysizes.min.js" tag="true" }}
+
+{{ if slug == 'chi-siamo' }}
+  {{ theme:js src="bulma-carousel.min.js" tag="true" }}
+  <script type="text/javascript">
+    var carousels = bulmaCarousel.attach();
+  </script>
+{{ /if }}
+
+{{ theme:js src="main.js" tag="true" }}

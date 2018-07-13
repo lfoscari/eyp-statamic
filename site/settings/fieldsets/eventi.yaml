@@ -1,0 +1,101 @@
+title: Eventi
+fields:
+  preselezione:
+    type: array
+    localizable: true
+    keys:
+      title: Titolo
+      description: Descrizione
+      alert: Alert
+
+  periododipreselezione:
+    display: È periodo di preselezione?
+    type: toggle
+
+  pre_documents:
+    type: grid
+    display: Documenti della preselezione
+    add_row: Aggiungi documento
+    show_when:
+      periododipreselezione: true
+    fields:
+      button:
+        type: text
+        display: Button label
+      document:
+        type: assets
+        max_files: 1
+        container: main
+        folder: documents
+
+  faq:
+    type: grid
+    add_row: Aggiungi domanda
+    localizable: true
+    fields:
+      question:
+        type: textarea
+        display: Domanda
+      answer:
+        type: textarea
+        display: Risposta
+      hidden:
+        width: 10
+        type: toggle
+
+  faq_button:
+    type: array
+    display: Bottone "mostra di più"
+    localizable: true
+    keys:
+      show: Mostra
+      hide: Nascondi
+
+  nsc:
+    type: array
+    display: NSC
+    localizable: true
+    keys:
+      title: Title
+      description: Description
+
+  ints:
+    type: array
+    display: IS
+    localizable: true
+    keys:
+      title: Title
+      description: Description
+
+  intf:
+    type: array
+    display: IF
+    localizable: true
+    keys:
+      title: Title
+      description: Description
+
+  gaday:
+    type: array
+    display: GA Day
+    localizable: true
+    keys:
+      title: Title
+      description: Description
+
+
+  membersweekend:
+    type: array
+    display: Member's Weekend
+    localizable: true
+    keys:
+      title: Title
+      description: Description
+
+  chairstraining:
+    type: array
+    display: Chairs Training
+    localizable: true
+    keys:
+      title: Title
+      description: Description

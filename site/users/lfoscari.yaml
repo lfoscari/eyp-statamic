@@ -1,0 +1,11 @@
+---
+roles:
+  - d32e14fb-08c9-44c2-aaf8-21200852bafd
+email: luigi.foscari@icloud.com
+first_name: Luigi
+last_name: Foscari
+id: 43e3c1d2-c488-43a8-ba9c-fb1a030d9070
+super: true
+password_hash: $2y$10$5qeWRXpOXRlvjwEItTQ5jOD0BsWgdi38GnojuXerCm7e/0axfozVu
+---
+bio bio bio

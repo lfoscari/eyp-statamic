@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="HandheldFriendly" content="True" />
+<title>{{ title or site_title }}</title>
+
+{{# {{ if slug == undefined }}
+  {{ theme:css src="pages/homepage" tag="true" }}
+{{ else }}
+  {{ theme:css src="pages/{{ slug }}" tag="true" }}
+{{ /if }} #}}
+
+{{ if slug == 'chi-siamo' }}
+  {{ theme:css src="bulma-carousel.min.css" tag="true" }}
+{{ /if }}
+
+{{ theme:css src="eypst.css" tag="true" }}
+{{ slug | console_log }}

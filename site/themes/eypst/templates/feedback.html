@@ -1,0 +1,71 @@
+<section class="section">
+    <div class="container">
+
+        <h1 class="title">{{ title }}</h1>
+
+        {{ content }}
+
+        <div class="columns">
+            <div class="column is-half">
+
+                {{ form:create in="feedback" }}
+
+                    {{ if success }}
+                        <div class="notification is-primary">
+                            Form was submitted successfully.
+                        </div>
+                    {{ /if }}
+
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="control">
+                            <input class="input" type="text" name="name" value="{{ old:name }}">
+                        </div>
+                        <p class="help is-danger">{{ error:name }}</p>
+                    </div>
+                            
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="email" name="email" value="{{ old:email }}">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                        <p class="help is-danger">{{ error:email }}</p>
+                    </div>
+                            
+                    <div class="field">
+                        <label class="label">Subject</label>
+                        <div class="control">
+                            <div class="select">
+                                <select name="subject">
+                                    <option>General</option>
+                                    <option>Problem</option>
+                                    <option>Happy New Year</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                            
+                    <div class="field">
+                        <label class="label">Message</label>
+                        <div class="control">
+                            <textarea class="textarea" name="message">{{ old:message }}</textarea>
+                        </div>
+                        <p class="help is-danger">{{ error:message }}</p>
+                    </div>
+                    
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-primary">Submit</button>
+                        </div>
+                    </div>
+
+                {{ /form:create }}
+                
+            </div>
+        </div>
+
+    </div>
+</section>

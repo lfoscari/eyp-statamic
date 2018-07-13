@@ -1,0 +1,143 @@
+title: Understanding Europe
+fields:
+
+  intro_background:
+    type: assets
+    folder: img
+    container: main
+    max_files: 1
+    display: Intro background image
+    width: 50
+    localizable: true
+
+  intro_image:
+    type: assets
+    folder: img
+    container: main
+    max_files: 1
+    display: Intro image (understanding europe)
+    width: 50
+    localizable: true
+
+  intro:
+    type: array
+    display: Intro texts
+    localizable: true
+    keys:
+      welcome: Welcome
+      description: Description
+      link_button: Button mail
+      button: Button
+
+  paragraphs:
+    type: grid
+    add_row: Add paragraph
+    mode: stacked
+    localizable: true
+    fields:
+      title:
+        type: text
+        display: Title
+      text:
+        type: textarea
+        display: Text
+
+  dark_heading:
+    type: text
+    display: Dark section heading
+    width: 50
+    localizable: true
+
+  dark_image:
+    type: assets
+    display: Dark section image
+    folder: img
+    container: main
+    max_files: 1
+    width: 50
+    localizable: true
+
+  dark_icons:
+    type: grid
+    max_rows: 3
+    localizable: true
+    fields:
+      icon:
+        type: assets
+        display: Icon
+        folder: img
+        container: main
+        max_files: 1
+        width: 10
+      number:
+        type: text
+        display: Number
+      info:
+        type: text
+        display: Info
+
+  pattern:
+    type: assets
+    display: Pattern image
+    folder: img
+    container: main
+    max_files: 1
+    width: 50
+    localizable: true
+
+  howto_button:
+    type: array
+    display: How to button
+    width: 50
+    localizable: true
+    keys:
+      text: Text
+      mail: Mail
+
+  howto:
+    type: grid
+    display: How to (pattern section)
+    localizable: true
+    fields:
+      title:
+        type: text
+        display: Title
+      text:
+        type: textarea
+        display: Text
+
+  vimeo_title:
+    display: Vimeo box heading
+    type: text
+    width: 50
+    localizable: true
+
+  vimeo:
+    display: Vimeo playlist
+    type: text
+    width: 50
+    localizable: true
+
+  poster_title:
+    display: Poster box heading
+    type: text
+    width: 33
+    localizable: true
+
+  poster_img:
+    type: assets
+    display: Poster img
+    folder: img
+    container: main
+    max_files: 1
+    width: 33
+    localizable: true
+
+  poster_file:
+    type: assets
+    display: Poster download file
+    folder: documents
+    container: main
+    max_files: 1
+    width: 33
+    localizable: true

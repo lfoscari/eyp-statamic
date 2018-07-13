@@ -1,0 +1,60 @@
+title: Trasparenza
+fields:
+  intro_image:
+    type: assets
+    folder: img
+    container: main
+    max_files: 1
+    display: Intro img
+    width: 50
+    localizable: true
+
+  documents_heading:
+    type: text
+    display: Documents heading
+    localizable: true
+
+  documents:
+    type: grid
+    localizable: true
+    fields:
+      name:
+        type: text
+        width: 40
+        display: Name
+      date:
+        type: text
+        width: 40
+        display: Date
+      file:
+        type: assets
+        folder: documents
+        container: main
+        max_files: 1
+        display: Document
+        width: 20
+
+  board_title:
+    type: text
+    localizable: true
+    display: Board section title
+
+  board_description:
+    type: textarea
+    localizable: true
+    display: Board section description
+
+  assistants_title:
+    type: text
+    localizable: true
+    display: Assistants section title
+
+  info_title:
+    type: text
+    localizable: true
+    display: Info section title
+
+  info:
+    type: markdown
+    localizable: true
+    display: EYP Info

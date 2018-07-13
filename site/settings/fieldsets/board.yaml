@@ -1,0 +1,30 @@
+title: Board Member
+hide: true
+taxonomies: true
+fields:
+  title:
+    display: Nome completo
+    width: 50
+  role:
+    display: Ruolo
+    width: 50
+    validate: required
+    localizable: true
+    note: Localizzabile
+  pic:
+    type: assets
+    container: main
+    folder: img/cd
+    validate: required
+  mail:
+    display: Indirizzo Mail
+    width: 50
+    validate: required
+  linkedin:
+    display: Link profilo Likedin
+    width: 50
+  bio:
+    type: textarea
+    display: Bio
+    localizable: true
+    note: Localizzabile

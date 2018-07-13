@@ -1,0 +1,115 @@
+title: Chi Siamo
+fields:
+  slideshow:
+    type: grid
+    add_row: Add slide
+    localizable: true
+    fields:
+      image:
+        type: assets
+        display: Background Image
+        container: main
+        folder: img
+        max_files: 1
+      title:
+        type: textarea
+        display: Title
+      description:
+        type: textarea
+        display: Description
+
+  mission:
+    type: textarea
+    display: Mission
+    localizable: true
+
+  video_url:
+    type: text
+    display: Video url
+    instructions: YouTube or Vimeo
+    localizable: true
+
+  description:
+    type: textarea
+    display: Description
+    localizable: true
+
+  nb:
+    type: array
+    display: National Board
+    localizable: true
+    keys:
+      title: Title
+      description: Description
+
+  gdl_image:
+    type: assets
+    display: Gruppi di Lavoro Immagine
+    folder: img
+    container: main
+    max_files: 1
+    localizable: true
+
+  gdl_info:
+    type: array
+    display: Gruppi di Lavoro Info
+    localizable: true
+    keys:
+      title: Title
+      description: Description
+  gdl:
+    display: Gruppi di Lavoro
+    type: grid
+    add_row: Add workgroup
+    localizable: true
+    fields:
+      title:
+        type: text
+        display: Title
+      description:
+        type: textarea
+        display: Description
+      contact:
+        type: text
+        display: Contact
+
+  governingbody:
+    type: array
+    display: Governing Body
+    localizable: true
+    keys:
+      title: Title
+      description: Description
+
+  schwarzkopf_image:
+    type: assets
+    display: Schwarzkopf-Stiftung Junges Europa
+    folder: img
+    container: main
+    max_files: 1
+    localizable: true
+
+  schwarzkopf_description:
+    type: markdown
+    display: Schwarzkopf-Stiftung Junges Europa Description
+    localizable: true
+
+  sponsor_label:
+    type: text
+    display: Sponsored by
+    localizable: true
+
+  sponsor:
+    type: grid
+    add_row: Add sponsor
+    localizable: true
+    fields:
+      image:
+        type: assets
+        display: Background Image
+        container: main
+        folder: img/logos
+        max_files: 1
+      main:
+        type: toggle
+        width: 10

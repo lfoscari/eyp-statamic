@@ -1,0 +1,21 @@
+title: Contact
+fields:
+  name:
+    display: Name
+    validate: ""
+  surname:
+    display: Surname
+  mail:
+    display: Mail
+    validate: email
+  message:
+    display: Message
+columns:
+  - name
+  - surname
+  - mail
+  - message
+email:
+  - 
+    to: luigi.foscari@icloud.com
+    subject: Ehi ehi qualcuno chiede qualcosa su eypitaly.org!

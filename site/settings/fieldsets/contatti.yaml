@@ -1,0 +1,98 @@
+title: Contatti
+fields:
+  intro:
+    type: array
+    width: 50
+    localizable: true
+    keys:
+      title: Title
+      description: Description
+
+  intro_image:
+    type: assets
+    folder: img
+    container: main
+    max_files: 1
+    display: Intro img
+    width: 50
+    localizable: true
+
+  contact:
+    type: array
+    localizable: true
+    keys:
+      title: Title
+      description: Description
+      note: Note
+      mail: Mail
+
+  ourcontacts:
+    type: text
+    display: Contacts title
+    localizable: true
+
+  schools_title:
+    type: text
+    display: Schools title
+    localizable: true
+
+  schools:
+    type: grid
+    localizable: true
+    fields:
+      name:
+        type: text
+        width: 25
+      role:
+        type: text
+        width: 25
+      mail:
+        type: text
+        width: 25
+      phone:
+        type: text
+        width: 25
+
+  understandingeurope_title:
+    type: text
+    display: Understanding Europe title
+    localizable: true
+
+  understandingeurope:
+    type: grid
+    localizable: true
+    fields:
+      name:
+        type: text
+        width: 25
+      role:
+        type: text
+        width: 25
+      mail:
+        type: text
+        width: 25
+      phone:
+        type: text
+        width: 25
+
+  press_title:
+    type: text
+    display: Press title
+    localizable: true
+
+  press:
+    type: grid
+    localizable: true
+    fields:
+      name:
+        type: text
+        width: 25
+      role:
+        type: text
+        width: 25
+      mail:
+        type: text
+        width: 25
+      phone:
+        type: text
+        width: 25

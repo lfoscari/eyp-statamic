@@ -1,0 +1,31 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation" id="nav">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="{{ path src="/" }}">
+      <img src="/assets/img/eyp@300x.png" alt="EYP Italy">
+    </a>
+
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div class="navbar-menu" id="navMenu">
+    <div class="navbar-end">
+      {{ nav from="/" include_home="false" scope="tag" hidden:isnt="true" }}
+        <a class="has-text-weight-semibold navbar-item {{ if is_current or is_parent }}is-active{{ /if }}" href="{{ url }}">
+         {{ title }}
+        </a>
+      {{ /nav }}
+
+      {{ if locale == 'it'}}
+        <a class="has-text-weight-semibold navbar-item {{ if is_current }}is-active{{ /if }}" href="en{{ url }}">EN</a>
+      {{ else }}
+        <a class="has-text-weight-semibold navbar-item {{ if is_current }}is-active{{ /if }}" href="{{ url | remove_left:/en }}">IT</a>
+      {{ /if }}
+
+      </a>
+    </div>
+  </div>
+</nav>

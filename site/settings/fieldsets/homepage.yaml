@@ -1,0 +1,150 @@
+title: Homepage
+fields:
+  intro:
+    type: text
+    display: Intro
+    localizable: true
+
+  typing:
+    display: Typing
+    type: array
+    width: 50
+    localizable: true
+    keys:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+
+  typingb:
+    display: Typing
+    type: array
+    width: 50
+    localizable: true
+    keys:
+     - 6
+     - 7
+     - 8
+     - 9
+     - 10
+
+
+  intro_button_a:
+    type: text
+    display: Intro_button_a
+    width: 50
+    localizable: true
+
+  intro_button_b:
+    type: text
+    display: Intro_button_b
+    width: 50
+    localizable: true
+
+
+  section_a:
+    type: array
+    width: 50
+    localizable: true
+    keys:
+      title: Title
+      text: Text
+
+  section_b:
+    type: array
+    width: 50
+    localizable: true
+    keys:
+      title: Title
+      text: Text
+
+  quote:
+    type: array
+    display: Quote
+    localizable: true
+    keys:
+      text: Text
+      source: Source
+      image: Image
+
+  section_c:
+    type: array
+    width: 50
+    localizable: true
+    keys:
+      title: Title
+      text: Text
+
+  section_d:
+    type: array
+    width: 50
+    localizable: true
+    keys:
+      title: Title
+      text: Text
+
+
+  section_e_title:
+    type: text
+    display: Section E Title
+    localizable: true
+
+  section_e_point_1:
+    type: array
+    width: 33
+    localizable: true
+    keys:
+      title: Title
+      text: Text
+
+  section_e_point_2:
+    type: array
+    width: 33
+    localizable: true
+    keys:
+      title: Title
+      text: Text
+
+  section_e_point_3:
+    type: array
+    width: 33
+    localizable: true
+    keys:
+      title: Title
+      text: Text
+
+  video_file_mp4:
+    type: text
+    width: 33
+    localizable: true
+
+  video_file_webm:
+    type: text
+    width: 33
+    localizable: true
+
+  video_file_cover:
+    type: assets
+    folder: img
+    container: main
+    max_files: 1
+    display: Still image replacing video in case of low connection and on mobile
+    width: 33
+
+
+  cookie:
+    type: assets
+    folder: documents
+    container: main
+    max_files: 1
+    display: Cookie Policy
+    width: 50
+
+  santanna:
+    type: assets
+    folder: img
+    container: main
+    max_files: 1
+    display: Sponsor (Sant'anna & MIUR)
+    width: 50

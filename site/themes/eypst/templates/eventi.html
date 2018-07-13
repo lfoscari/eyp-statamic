@@ -1,0 +1,116 @@
+<section class="hero is-large has-background-image background-image is-dark" style="background-image: url('/assets/img/teambuilding.jpg')">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+         {{ preselezione:title }}<br>
+      </h1>
+      <p>{{ preselezione:description }}</p>
+      <p class="has-text-yellow"><b>{{ preselezione:alert }}</b></p>
+
+      {{ if periododipreselezione }}
+        {{ pre_documents }}
+          <a class="button is-white is-outlined is-rounded" href="{{ document }}" download>{{ button }}</a>
+        {{ /pre_documents }}
+      {{ /if}}
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <section class="hero is-medium">
+    <div class="hero-body columns is-multiline">
+      <h3 class="column is-12 title"></h3>
+
+      {{ faq }}
+
+        <div class="column is-6 {{ if hidden }}is-hidden{{ /if }}">
+          <h4 class="has-text-weight-semibold">{{ question }}</h4>
+          <p>{{ answer }}</p>
+        </div>
+
+      {{ /faq }}
+
+      <div class="column is-12 has-text-centered">
+        <button class=" button is-light is-rounded" id="expandButton" data-hide="{{ faq_button:hide }}" data-show="{{ faq_button:show }}">{{ faq_button:show  }}</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="hero is-medium is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        {{ nsc:title }}
+      </h1>
+      <h2 class="subtitle">
+        {{ nsc:description }}
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-medium">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        {{ ints:title }}
+      </h1>
+      <h2 class="subtitle">
+        {{ ints:description }}
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-medium is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        {{ intf:title }}
+      </h1>
+      <h2 class="subtitle">
+        {{ intf:description }}
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-medium">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        {{ gaday:title }}
+      </h1>
+      <h2 class="subtitle">
+        {{ gaday:description }}
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<div class="hero is-fullheight container">
+  <div class="hero-body">
+    <div class="columns">
+    <div class="column is-half has-text-centered">
+      <div class="events-associates is-light">
+        <figure class="image image-events">
+          <img data-src="/assets/img/backpack.png" alt="Members Weekend" class="lazyload is-centered">
+        </figure>
+        <h2 class="title">{{ membersweekend:title }}</h2>
+        <p>{{ membersweekend:description }}</p>
+      </div>
+    </div>
+    <div class="column is-half has-text-centered">
+      <div class="events-associates is-blue">
+        <figure class="image image-events">
+          <img data-src="/assets/img/chair.png" alt="Chairs Training" class="lazyload is-centered">
+        </figure>
+        <h2 class="title has-text-white">{{ chairstraining:title }}</h2>
+        <p class="has-text-white">{{ chairstraining:description }}</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<div class="hero is-medium is-dark understandingeurope">
+  <div class="hero-body columns is-multiline has-text-centered has-background-image" style="background-image: url('{{ intro_background }}');">
+    <h2 class="column is-12 has-text-yellow is-size-1-desktop is-size-4-touch">{{  intro:welcome }}</h2>
+    <figure class="image column is-10 is-offset-1 is-paddingless">
+      <img src="{{ intro_image }}" alt="Understanding Europe">
+    </figure>
+    <h3 class="column is-8 is-offset-2 is-size-3-desktop is-size-5-touch">{{ intro:description }}</h3>
+    <div class="column is-12 has-text-centered">
+      <a href="mailto:{{ intro:link_button }}" class="button is-understanding is-inverted is-outlined">{{ intro:button }}</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <section class="section">
+
+    {{ paragraphs }}
+      <h3 class="has-text-weight-bold has-text-understanding">{{ title }}</h3>
+      <p>{{ text }}</p>
+    {{ /paragraphs }}
+
+  </section>
+</div>
+
+<div class="hero is-understanding understanding-in-italy">
+  <div class="hero-body level" style="background-image: url('{{ dark_image }}')">
+    <h3 class="column is-12 has-text-weight-bold has-text-centered is-uppercase">{{ dark_heading }}</h3>
+
+    {{ dark_icons }}
+
+      <div class="level-item has-text-centered">
+        <figure class="image is-256x256 is-centered">
+          <img data-src="{{ icon }}" class="lazyload" alt="{{ info }}">
+        </figure>
+        <h2 class="has-text-weight-bold">{{ number }}</h2>
+        <h4 class="has-text-weight-semibold">{{ info }}</h4>
+      </div>
+
+    {{ /dark_icons }}
+
+  </div>
+</div>
+
+<div class="container is-fluid understanding-pattern" style="background-image: url('/assets/img/shapes.png')">
+  <div class="container">
+    <section class="section has-text-centered">
+
+      {{ howto }}
+
+        <h3 class="has-text-shadow has-text-weight-bold has-text-understanding is-uppercase">{{ title }}</h3>
+        <p>{{ text }}</p>
+
+      {{ /howto }}
+
+      <a href="mailto:{{ howto_button:mail }}" class="button is-understanding">{{ howto_button:text }}</a>
+    </section>
+
+    <section class="section columns is-multiline">
+      <div class="column is-half has-text-centered">
+        <h4 class="has-text-understanding">{{ vimeo_title }}</h4>
+        <div id="player" class="lazyload has-box-shadow" ></div>
+      </div>
+      <div class="column is-half has-text-centered">
+        <h4 class="has-text-understanding">{{ poster_title }}</h4>
+        <a href="{{ poster_img }}" download>
+          <div class="has-box-shadow poster" style="background-image: url('{{ poster_img }}');"></div>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+
+{{ if vimeo }}
+  <script src="https://luwes.github.io/vimeowrap.js/vimeowrap.js"></script>
+  <script src="https://luwes.github.io/vimeowrap.js/vimeowrap.playlist.js"></script>
+  <script async>
+    var w = document.querySelector(".poster").offsetWidth;
+    var h = document.querySelector(".poster").offsetHeight;
+      vimeowrap('player').setup({
+        urls: [
+          '{{ vimeo }}'
+        ],
+        plugins: {
+          'playlist': {
+            width: w,
+            size: h / 2
+          }
+        },
+        width: w,
+        height: h / 2
+      });
+  </script>
+{{ /if }}

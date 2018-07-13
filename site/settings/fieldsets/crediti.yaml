@@ -1,0 +1,35 @@
+title: Crediti
+fields:
+  intro_image:
+    type: assets
+    folder: img
+    container: main
+    max_files: 1
+    display: Intro img
+    width: 50
+    localizable: true
+
+  intro_title:
+    type: text
+    display: Intro text
+    localizable: true
+
+  code_title:
+    type: text
+    display: Code and design list title
+    localizable: true
+
+  code:
+    type: list
+    display: Code and design
+    localizable: true
+
+  contents_title:
+    type: text
+    display: Content list title
+    localizable: true
+
+  contents:
+    type: list
+    display: Content
+    localizable: true

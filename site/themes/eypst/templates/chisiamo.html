@@ -1,0 +1,143 @@
+<section class="hero is-halfheight has-carousel">
+  <div class="hero-body">
+    <div class="hero-carousel carousel-animated carousel-animate-slide" data-autoplay="true">
+    <div class='carousel-container'>
+
+      {{ slideshow }}
+
+        <div class='carousel-item has-background is-active'>
+          <div class="title has-text-right">
+            <span>{{ title }}</span><br>
+            <span>{{ description }}</span>
+          </div>
+          {{ if count == 0 }}
+            <img class="is-background" src="{{ image }}" alt="{{ title }}" />
+          {{ else }}
+            <img class="is-background lazyload" data-src="{{ image }}" alt="{{ title }}" />
+          {{ /if }}
+        </div>
+
+      {{ /slideshow }}
+
+  </div>
+  </div>
+</section>
+
+<section class="container hero is-medium">
+  <div class="hero-body columns is-multiline">
+    <div class="column">
+      <h3>{{ mission }}</h3>
+    </div>
+    <div class="column">
+      <iframe class="lazyload" data-src="{{ video_url }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="column is-12">
+    <p>{{ description }}</div>
+  </div>
+</section>
+
+<section class="section columns is-multiline is-light-bold sponsor-intro">
+
+  {{# <div class="column is-3-desktop is-6-touch">
+    <figure class="image">
+      <img src="/assets/img/santanna.png" alt="">
+    </figure>
+  </div>
+  <div class="column is-3-desktop is-6-touch">
+    <figure class="image">
+      <img src="/assets/img/miur.png" alt="">
+    </figure>
+  </div> #}}
+
+  <div class="column is-12 sponsor">
+    {{ sponsor }}
+      {{ if main }}
+        <img class="lazyload" data-src="{{ image }}">
+      {{ /if }}
+    {{ /sponsor }}
+  </div>
+
+  <div class="column is-12">
+    <div class="column is-8-desktop is-offset-2-desktop divider">
+      <small>{{ sponsor_label }}</small>
+    </div>
+  </div>
+
+  <div class="column is-9-desktop is-12-mobile sponsor">
+    {{ sponsor }}
+      {{ unless main }}
+        <img class="lazyload" data-src="{{ image }}">
+      {{ /unless }}
+    {{ /sponsor }}
+  </div>
+</section>
+
+<a href="#" class="national-board-link">
+  <section class="hero container is-medium">
+    <div class="hero-body national-board">
+      <div class="level is-mobile">
+
+        {{ collection:consigliodirettivo }}
+
+          <figure class="image is-96x96">
+            <img data-src="{{ pic:0 }}" class="lazyload is-round level-item">
+          </figure>
+
+        {{ /collection:consigliodirettivo }}
+
+        {{ collection:assistentidipresidenza }}
+
+          <figure class="image is-96x96">
+            <img data-src="{{ pic:0 }}" class="lazyload is-round level-item">
+          </figure>
+
+        {{ /collection:assistentidipresidenza }}
+
+      </div>
+
+      <div class="has-text-centered">
+        <h3 class="title has-text-black">{{ nb:title }}</h3>
+        <p>{{ nb:description }}</p>
+      </div>
+    </div>
+  </section>
+</a>
+
+<div class="container hero">
+  <div class="hero-body columns is-multiline workgroups">
+
+    <div class="column is-12">
+      <div class="hero is-medium is-dark has-background-image" style="background-image: url('{{ gdl_image }}')">
+        <div class="hero-body">
+          <h3 class="has-text-weight-bold">{{ gdl_info:title }}</h3>
+          <p>{{ gdl_info:description }}</p>
+        </div>
+      </div>
+    </div>
+
+    {{ gdl }}
+      <div class="hero-body column is-6">
+        <h4 class="has-text-weight-bold">{{ title }}</h4>
+        <p>{{ description }}</p>
+        <a href="{{ contact }}">{{ contact }}</a>
+      </div>
+    {{ /gdl }}
+
+  </div>
+</div>
+
+<div class="hero is-medium governing-body is-dark" style="background-image: url('/assets/img/governing.png')">
+  <div class="hero-body container">
+    <h3>{{ governingbody:title }}</h3>
+    <p>{{ governingbody:description }}</p>
+  </div>
+</div>
+
+<div class="hero is-medium schwarzkopf">
+  <div class="container hero-body one-line-link">
+    <div class="image column is-4 is-offset-4">
+      <img src="{{ schwarzkopf_image }}" alt="Schwarzkopf Foundation Young Europe">
+    </div>
+    {{ schwarzkopf_description | markdown }}
+  </div>
+</div>
