@@ -1,6 +1,8 @@
 @import "sass/utilities/functions";
 @import "sass/utilities/initial-variables";
 
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i');
+
 // 2. Set your own initial variables
 
 $blue: #144b8e;
@@ -93,6 +95,11 @@ $colors: map-merge($colors, $addColors);
             Typography
 ----------------------------------*/
 
+h1, h2, h3, h4, h5, h6, p, a, span {
+  font-feature-settings:"onum" 1, "pnum" 1, "kern" 1, "ss01" 1;
+  font-kerning: normal;
+}
+
 a {
   font-weight: 600;
   @include transition;
@@ -130,6 +137,10 @@ h5 {
 p {
   @extend .subtitle;
   @extend .is-5;
+  letter-spacing: 0.015em;
+  word-spacing: 0.001em;
+  -webkit-font-smoothing: antialiased; /* Chrome, Safari */
+  -moz-osx-font-smoothing: grayscale; /* Firefox */
 }
 
 /*---------------------------------
@@ -138,6 +149,7 @@ p {
 
 nav {
   @include transition(background-color);
+  max-width: 100%;
 }
 
 .navbar-menu .navbar-item {
@@ -232,10 +244,15 @@ nav {
 }
 
 .cookie {
+  @include transition;
   position: fixed;
   bottom: 1rem;
   left: 1rem;
-  visibility: hidden;
+  opacity: 0;
+
+  &.show {
+    opacity: 1;
+  }
 
   a {
     margin-bottom: 0 !important;
@@ -306,24 +323,8 @@ nav {
     width: 100%;
     height: 100%;
     max-width: inherit;
-
-    @include mobile {
-      object-fit: cover;
-    }
-  }
-}
-
-@media (min-aspect-ratio: 16/9) {
-  .video-container video {
-    height: 300%;
-    top: -100%;
-  }
-}
-
-@media (max-aspect-ratio: 16/9) {
-  .video-container video {
-    width: 300%;
-    left: -100%;
+    background-size: cover;
+    object-fit: cover;
   }
 }
 
@@ -481,6 +482,7 @@ iframe {
 }
 
 .schwarzkopf {
+
   ul {
     @extend .subtitle;
     @extend .is-5;
@@ -583,8 +585,13 @@ iframe {
     padding: 1rem 0;
   }
 
-  img {
-    padding: 2rem;
+  .image {
+    height: auto;
+    max-width: 100%;
+
+    img {
+      padding: 2rem;
+    }
   }
 }
 

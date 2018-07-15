@@ -63,17 +63,17 @@ function getCookie(name) {
 var policy = getCookie("policy")
 		cookie = document.querySelector(".cookie")
 		close = document.getElementById("cookie-close")
-if (!policy)	cookie.style.visibility = "visible";
+if (!policy)	cookie.style.opacity = 1
 
 if (document.querySelector('#cookie-close')) {
   close.addEventListener('click', function() {
-    cookie.style.visibility = "hidden";
-    var now = new Date();
-    var time = now.getTime();
-    var expireTime = time + 1000 * 36000;
-    now.setTime(expireTime);
-    var tempExp = 'Wed, 31 Oct 2012 08:50:17 GMT';
-    document.cookie = 'policy=false;expires=' + now.toGMTString() + ';path=/';
+    cookie.style.opacity = 0
+    var now = new Date()
+    var time = now.getTime()
+    var expireTime = time + 1000 * 36000
+    now.setTime(expireTime)
+    var tempExp = 'Wed, 31 Oct 2012 08:50:17 GMT'
+    document.cookie = 'policy=false;expires=' + now.toGMTString() + ';path=/'
   });
 }
 
