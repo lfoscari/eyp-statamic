@@ -1,6 +1,6 @@
 <span class="cookie tag is-grey is-medium">
- <a href="{{ cookie }}">Cookie Policy</a>
- &nbsp;<button class="delete is-small" id="cookie-close"></button>
+ <a href="{{ cookie }}">Cookie policy</a>
+ &nbsp;<button class="delete is-small" id="cookie-close" name="cookie"></button>
 </span>
 
 {{ if slug != undefined }}
@@ -52,12 +52,23 @@
 {{ else }}
   {{ theme:js src="typed.min.js" tag="true" }}
   <script type="text/javascript">
-   var typed = new Typed('.typewriter', {
-     strings: ["{{ typing:1 }}", "{{ typing:2 }}", "{{ typing:3 }}", "{{ typing:4 }}", "{{ typing:5 }}", "{{ typingb:6 }}", "{{ typingb:7 }}", "{{ typingb:8 }}", "{{ typingb:9 }}", "{{ typingb:10 }}"],
-     typeSpeed: 50,
-     backSpeed: 50,
-     loop: true
-   });
+    var typed = new Typed('.typewriter', {
+      strings: [
+        "{{ typing:1 }}",
+        "{{ typing:2 }}",
+        "{{ typing:3 }}",
+        "{{ typing:4 }}",
+        "{{ typing:5 }}",
+        "{{ typingb:6 }}",
+        "{{ typingb:7 }}",
+        "{{ typingb:8 }}",
+        "{{ typingb:9 }}",
+        "{{ typingb:10 }}"
+      ],
+      typeSpeed: 50,
+      backSpeed: 50,
+      loop: true
+    });
   </script>
 {{ /if }}
 

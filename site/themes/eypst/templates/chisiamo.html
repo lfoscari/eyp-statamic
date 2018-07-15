@@ -23,7 +23,7 @@
   </div>
 </section>
 
-<section class="container hero is-medium">
+<section class="container hero">
   <div class="hero-body columns is-multiline">
     <div class="column">
       <h3>{{ mission }}</h3>
@@ -72,7 +72,7 @@
   </div>
 </section>
 
-<a href="#" class="national-board-link">
+<a href="{{ path src="trasparenza" }}" class="national-board-link">
   <section class="hero container is-medium">
     <div class="hero-body national-board">
       <div class="level is-mobile">
@@ -116,11 +116,15 @@
     </div>
 
     {{ gdl }}
-      <div class="hero-body column is-6">
-        <h4 class="has-text-weight-bold">{{ title }}</h4>
-        <p>{{ description }}</p>
-        <a href="{{ contact }}">{{ contact }}</a>
+
+      <div class="hero is-small column is-6">
+        <div class="hero-body">
+          <h4 class="has-text-weight-bold">{{ title }}</h4>
+          <p>{{ description }}</p>
+          <a href="{{ contact }}">{{ contact }}</a>
+        </div>
       </div>
+
     {{ /gdl }}
 
   </div>

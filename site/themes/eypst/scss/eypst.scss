@@ -140,8 +140,12 @@ nav {
   @include transition(background-color);
 }
 
-.navbar-end .navbar-item {
+.navbar-menu .navbar-item {
   font-size: 1.25rem;
+
+  @include touch {
+    padding: .5rem;
+  }
 }
 
 .navbar-burger {
@@ -162,18 +166,24 @@ nav {
   }
 }
 
-.navbar-item {
-  @include touch {
-    padding-bottom: 1rem;
-  }
-}
+// .navbar-item {
+//   @include touch {
+//     padding-bottom: 1rem;
+//   }
+// }
 
 /*---------------------------------
             Footer
 ----------------------------------*/
 
-.footer a {
-  margin-bottom: 0.5rem;
+.footer {
+  figure {
+    margin: 0 auto;
+  }
+
+  a {
+    margin-bottom: 0.5rem;
+  }
 }
 
 /*---------------------------------
@@ -200,6 +210,10 @@ nav {
 
 .title {
   font-weight: bold;
+  // @include mobile {
+  //   word-break: break-all;
+  //   hyphens: auto;
+  // }
 }
 
 .level.is-mobile {
@@ -384,15 +398,17 @@ nav {
   color: grey;
   text-align: center;
 
-  &::after,
-  &::before {
-    display: inline-block;
-    content: '';
-    border-top: 0.15rem solid rgba(0, 0, 0, 0.3);
-    width: 20vw;
-    margin: 0 15px;
-    -webkit-transform: translateY(-5px);
-    transform: translateY(-5px);
+  @include desktop {
+    &::after,
+    &::before {
+      display: inline-block;
+      content: '';
+      border-top: 0.15rem solid rgba(0, 0, 0, 0.3);
+      width: 20vw;
+      margin: 0 15px;
+      -webkit-transform: translateY(-5px);
+      transform: translateY(-5px);
+    }
   }
 }
 
@@ -409,21 +425,13 @@ iframe {
   align-content: space-around;
   justify-content: center;
 
-  // figure {
-  //   height: auto;
-  //   width: 25%;
-  //   @include touch {
-  //     width: 50%;
-  //   }
-
-    img {
-      height: auto;
-      width: 25%;
-      @include mobile {
-        width: 50%;
-      }
+  img {
+    height: auto;
+    width: 25%;
+    @include mobile {
+      width: 50%;
     }
-  // }
+  }
 }
 
 .sponsor-intro {
@@ -453,6 +461,12 @@ iframe {
 
   .hero-body {
     display: block !important;
+  }
+
+  & > .hero > .hero-body {
+    @include mobile {
+      padding: 0;
+    }
   }
 }
 
@@ -501,7 +515,9 @@ iframe {
 ----------------------------------*/
 
 .events-associates {
-  margin: 0 1rem;
+  @include desktop {
+    margin: 0 1rem;
+  }
   padding: 2.5rem;
   height: 100%;
 
@@ -525,9 +541,11 @@ iframe {
 }
 
 .image-events img {
-  height: 256px;
   width: auto;
+  height: auto;
+  max-height: 256px;
   margin-bottom: 1.5rem;
+  max-width: 100%
 }
 
 // .faq-question:nth-of-type(n + 3) {

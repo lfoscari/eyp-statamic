@@ -40,7 +40,9 @@
         <div class="card-content">
           <div class="media">
             <div class="media-left">
-              <figure class="image is-256x256"><img src="{{ pic:0 }}" alt="{{ title }}"></figure>
+              <figure class="image is-256x256">
+                <img data-src="{{ pic:0 }}" alt="{{ title }}" class="lazyload">
+              </figure>
             </div>
             <div class="media-content">
               <h4>{{ title }}</h4>
@@ -51,7 +53,9 @@
                 </a>
               {{ /if }}
               <p class="is-5 has-text-weight-semibold has-text-primary">{{ role }}</p>
-              <p>{{ bio }}</p>
+              {{ if bio }}
+                <p>{{ bio }}</p>
+              {{ /if }}
             </div>
           </div>
         </div>
@@ -75,7 +79,7 @@
           <div class="media">
             <div class="media-left">
               <figure class="image is-256x256">
-                <img src="{{ pic:0 }}" alt="{{ title }}">
+                <img data-src="{{ pic:0 }}" alt="{{ title }}" class="lazyload">
               </figure>
             </div>
             <div class="media-content">
@@ -87,7 +91,9 @@
                 </a>
               {{ /if }}
               <p class="is-5 has-text-weight-semibold has-text-primary">{{ role }}</p>
-              <p>{{ bio }}</p>
+              {{ if bio }}
+                <p>{{ bio }}</p>
+              {{ /if }}
             </div>
           </div>
         </div>
@@ -104,7 +110,7 @@
     <div class="columns is-multiline">
       <div class="column">
         <figure>
-          <img src="/assets/img/eyplogo.png" alt="EYP italy">
+          <img data-src="/assets/img/eyplogo.png" alt="EYP italy" class="lazyload">
         </figure>
       </div>
       <div class="column">

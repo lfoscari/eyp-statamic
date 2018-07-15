@@ -71,7 +71,7 @@ gulp.task("css", () => {
       .pipe(sourcemaps.init())
       .pipe(
         sass({
-          outputStyle: 'compressed',
+          // outputStyle: 'compressed',
           includePaths: ['node_modules/susy/sass']
         }).on('Per dindirindira', sass.logError)
       )
@@ -79,7 +79,7 @@ gulp.task("css", () => {
           browsers: ['last 2 versions'],
           cascade: false
       }))
-      .pipe(purgecss({ content: ["templates/*.html", "partials/*.html", "layouts/*.html", "js/main.js"] }))
+      // .pipe(purgecss({ content: ["templates/*.html", "partials/*.html", "layouts/*.html", "js/main.js"] }))
       .pipe(sourcemaps.write("./"))
       .pipe(gulp.dest("./css/"))
 });
