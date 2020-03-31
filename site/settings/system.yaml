@@ -2,11 +2,11 @@ locales:
   it:
     full: it_IT
     name: Italian
-    url: http://eyp
+    url: /
   en:
     full: en_US
     name: English
-    url: http://eyp/en
+    url: /en
 timezone: UTC
 date_format: F jS, Y
 default_extension: md
@@ -26,7 +26,7 @@ filesystems:
     url: /site/themes
 app_key: ezvLFsIJUcc8JEqihwH6nxLmNAFJQfoK
 redactor:
-  - 
+  -
     name: Standard
     settings:
       buttons:
@@ -37,7 +37,7 @@ redactor:
         - unorderedlist
         - orderedlist
         - html
-  - 
+  -
     name: Basic
     settings:
       buttons:
