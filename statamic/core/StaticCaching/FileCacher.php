@@ -2,9 +2,13 @@
 
 namespace Statamic\StaticCaching;
 
+use Statamic\API\Str;
+use Statamic\API\Config;
 use Statamic\API\Path;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Cache\Repository;
+use Statamic\API\File;
+use Statamic\API\Folder;
 
 class FileCacher extends AbstractCacher
 {
@@ -41,7 +45,7 @@ class FileCacher extends AbstractCacher
 
         $content = $this->normalizeContent($content);
 
-        $path = $this->getFilePath($request->getUri());
+        $path = $this->getFilePath($url);
 
         if (! $this->writer->write($path, $content, $this->config('lock_hold_length'))) {
             return;
@@ -82,14 +86,19 @@ class FileCacher extends AbstractCacher
      */
     public function invalidateUrl($url)
     {
-        if (! $key = $this->getUrls()->flip()->get($url)) {
-            // URL doesn't exist, nothing to invalidate.
-            return;
+        if (Config::get('caching.static_caching_ignore_query_strings') === false) {
+            foreach (Folder::getFiles($this->getCachePath() . dirname($url)) as $file) {
+                if (Str::startsWith($file, $this->getCachePath() . $url)) {
+                   $this->writer->delete($file);
+               }
+           }
         }
 
         $this->writer->delete($this->getFilePath($url));
 
-        $this->forgetUrl($key);
+        if ($key = $this->getUrls()->flip()->get($url)) {
+            $this->forgetUrl($key);
+        }
     }
 
     public function getCachePaths()

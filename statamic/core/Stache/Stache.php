@@ -4,7 +4,6 @@ namespace Statamic\Stache;
 
 use Illuminate\Support\Collection;
 use Statamic\API\Str;
-use Statamic\API\File;
 use Statamic\API\Config;
 use Statamic\Stache\Drivers\AggregateDriver;
 use Statamic\Stache\Staches\TaxonomyStache;
@@ -32,19 +31,14 @@ class Stache
     private $meta = [];
 
     /**
-     * @var array|null
+     * @var array
      */
-    protected $config;
+    private $keys = [];
 
     /**
      * @var array
      */
     private $updates = [];
-
-    /**
-     * @var string
-     */
-    public $building_path;
 
     /**
      * The "temperature" of the Stache.
@@ -69,6 +63,8 @@ class Stache
 
     public $taxonomies;
 
+    protected $lock;
+
     /**
      * Stache constructor.
      *
@@ -81,8 +77,6 @@ class Stache
         $this->drivers = collect();
         $this->repositories = collect();
 
-        $this->building_path = cache_path('stache_building');
-
         $this->temperature = self::TEMP_COLD;
     }
 
@@ -94,10 +88,6 @@ class Stache
     public function cool()
     {
         $this->temperature = self::TEMP_COLD;
-
-        if (! File::exists($this->building_path)) {
-            File::put($this->building_path, true);
-        }
     }
 
     /**
@@ -108,10 +98,6 @@ class Stache
     public function heat()
     {
         $this->temperature = self::TEMP_WARM;
-
-        if (File::exists($this->building_path)) {
-            File::delete($this->building_path);
-        }
     }
 
     /**
@@ -132,16 +118,6 @@ class Stache
     public function isCold()
     {
         return $this->temperature === self::TEMP_COLD;
-    }
-
-    /**
-     * Whether the Stache is in the middle of performing its initial warm up.
-     *
-     * @return bool
-     */
-    public function isPerformingInitialWarmUp()
-    {
-        return File::exists($this->building_path);
     }
 
     /**
@@ -237,18 +213,18 @@ class Stache
     }
 
     /**
-     * Get or set the config
+     * Get or set the keys
      *
-     * @param null|array $config
-     * @return array|null
+     * @param array|null $keys
+     * @return null|array
      */
-    public function config($config = null)
+    public function keys($keys = null)
     {
-        if (is_null($config)) {
-            return $this->config;
+        if (is_null($keys)) {
+            return $this->keys;
         }
 
-        $this->config = $config;
+        $this->keys = $keys;
     }
 
     /**
@@ -371,7 +347,7 @@ class Stache
 
         $config = Config::all();
 
-        return compact('meta', 'config');
+        return md5(json_encode(compact('meta', 'config')));
     }
 
     /**
@@ -389,5 +365,22 @@ class Stache
             array_unshift($paths, $path);
             return $paths;
         });
+    }
+
+    /**
+     * Get or set the lock
+     *
+     * @param \Symfony\Component\Lock\Lock|null $lock
+     * @return self|\Symfony\Component\Lock\Lock
+     */
+    public function lock($lock = null)
+    {
+        if (is_null($lock)) {
+            return $this->lock;
+        }
+
+        $this->lock = $lock;
+
+        return $this;
     }
 }

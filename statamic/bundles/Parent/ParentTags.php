@@ -84,7 +84,7 @@ class ParentTags extends Tags
         // Create crumbs from segments
         $segment_urls = [];
         for ($i = 1; $i <= $segment_count; $i++) {
-            $segment_urls[] = URL::tidy(join($segments, '/'));
+            $segment_urls[] = URL::tidy(join('/', $segments));
             array_pop($segments);
         }
 
@@ -92,8 +92,9 @@ class ParentTags extends Tags
 
         // Find the parent by stripping away URL segments
         foreach ($segment_urls as $segment_url) {
+            $segment_url = URL::getDefaultUri(site_locale(), $segment_url);
             if ($content = Content::whereUri($segment_url)) {
-                return $content->toArray();
+                return $content->in(site_locale())->toArray();
             }
         }
 

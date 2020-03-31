@@ -3,6 +3,7 @@
 namespace Statamic\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
+use Statamic\Console\Application as Artisan;
 use Statamic\Extend\Management\AddonRepository;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -88,6 +89,25 @@ class Kernel extends ConsoleKernel
     }
 
     /**
+     * Get the Artisan application instance.
+     *
+     * This is exactly the same as the parent method, but we want to use our own
+     * Artisan class to override a method.
+     *
+     * @see https://github.com/statamic/v2-hub/issues/2469#issuecomment-580779591
+     * @return \Illuminate\Console\Application
+     */
+    protected function getArtisan()
+    {
+        if (is_null($this->artisan)) {
+            return $this->artisan = (new Artisan($this->app, $this->events, $this->app->version()))
+                                ->resolveCommands($this->commands);
+        }
+
+        return $this->artisan;
+    }
+
+    /**
      * Register any commands in addons
      */
     private function registerAddonCommands()
@@ -105,7 +125,7 @@ class Kernel extends ConsoleKernel
     private function getCommands()
     {
         foreach ($this->repo()->commands()->classes() as $class) {
-            $this->addon_commands[] = new $class;
+            $this->addon_commands[] = $this->app->make($class);
         }
 
         return $this->addon_commands;

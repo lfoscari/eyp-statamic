@@ -120,13 +120,25 @@ class StatamicController extends Controller
         // First check the root level controller, named after the addon.
         // eg. Statamic\Addons\AddonName\AddonNameController
         if (class_exists($rootClass = $namespace . "{$studly}Controller")) {
-            return app()->call($rootClass.'@'.$method, $params);
+            if (method_exists($rootClass, $method)) {
+                return app()->call($rootClass.'@'.$method, $params);
+            }
+
+            if (config('app.debug')) {
+                throw new \Exception("Method $rootClass::$method() does not exist");
+            }
         }
 
         // Next, check the controller namespace, still named after the addon.
         // eg. Statamic\Addons\AddonName\Controllers\AddonNameController
         if (class_exists($namespacedClass = $namespace."Controllers\\{$studly}Controller")) {
-            return app()->call($namespacedClass.'@'.$method, $params);
+            if (method_exists($namespacedClass, $method)) {
+                return app()->call($namespacedClass.'@'.$method, $params);
+            }
+
+            if (config('app.debug')) {
+                throw new \Exception("Method $namespacedClass::$method() does not exist");
+            }
         }
     }
 
@@ -149,8 +161,6 @@ class StatamicController extends Controller
         ) {
             return $response;
         }
-
-        return response('OK', 204);
     }
 
     /**
@@ -413,6 +423,8 @@ class StatamicController extends Controller
 
         $this->setUpDebugBar();
 
+        $this->fireResponseEvent();
+
         return $this->response;
     }
 
@@ -467,6 +479,11 @@ class StatamicController extends Controller
             $this->response->header($header, $value);
         }
 
+        $this->fireResponseEvent();
+    }
+
+    private function fireResponseEvent()
+    {
         // Allow addons to modify the response. They can add headers, modify the content, etc.
         // The event will get the Response object as a payload, which they simply need to modify.
         event('response.created', $this->response);

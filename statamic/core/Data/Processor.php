@@ -2,6 +2,7 @@
 
 namespace Statamic\Data;
 
+use Statamic\API\Arr;
 use Statamic\API\Fieldset;
 
 class Processor
@@ -16,7 +17,7 @@ class Processor
     {
         $this->fieldset = $fieldset;
 
-        $this->fieldtypes = collect($fieldset->withTaxonomies()->fieldtypes())->keyBy(function ($fieldtype) {
+        $this->fieldtypes = collect($fieldset->fieldtypes())->keyBy(function ($fieldtype) {
             return $fieldtype->getName();
         });
     }
@@ -90,10 +91,6 @@ class Processor
      */
     public function removeNullValues($data)
     {
-        return array_filter($data, function ($item) {
-            return is_array($item)
-                ? !empty($item)
-                : !in_array($item, [null, ''], true);
-        });
+        return Arr::removeNullValues($data);
     }
 }

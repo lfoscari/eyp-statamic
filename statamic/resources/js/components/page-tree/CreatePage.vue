@@ -1,6 +1,6 @@
 <template>
     <div>
-        <modal :show.sync="show" :saving="saving" :loading="loading" class="modal-small">
+        <modal :show.sync="show" :saving="saving" :loading="loading" class="modal-small" :dismissible="true">
             <template slot="header">{{ translate('cp.choose_page_type') }}</template>
 
             <template slot="body">
@@ -70,16 +70,6 @@ export default {
                         value: fieldset.uuid,
                         text: fieldset.title
                     });
-                });
-
-                // Ensure there is a default
-                if (! _.findWhere(fieldsets, { value: 'default' })) {
-                    fieldsets.push({ value: 'default', text: 'Default' });
-                }
-
-                // Sort alphabetically
-                fieldsets = _.sortBy(fieldsets, function (fieldset) {
-                    return fieldset.text;
                 });
 
                 this.fieldsets = fieldsets;
